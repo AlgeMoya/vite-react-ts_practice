@@ -1,9 +1,20 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import Modal from "./components/Modal";
 
 function App() {
+  // useState를 사용하여 open 상태를 변경한다. (open일 때 true로 만들어 열리는 방식)
+  const [modalOpen, setModalOpen] = useState(false);
   const [count, setCount] = useState(0);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   let text: string = "";
   let number: number = 5;
@@ -34,6 +45,12 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <br />
+        <br />
+        <button onClick={openModal}>모달팝업</button>
+        <Modal open={modalOpen} close={closeModal} header="Modal heading">
+          팝업창입니다. 쉽게 만들 수 있어요. 같이 만들어봐요!
+        </Modal>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
