@@ -1,9 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  let text: string = "";
+  let number: number = 5;
+
+  // 이렇게 하면 오류가 난다!
+  // number = "asdf";
+  // text = 5;
+
+  const array: number[] = [1, 2, 3];
+  // array.push("asdf"); // 이렇게 해도 오류가 난다
+
+  function squareNumbers(numbers: number[]): number[] {
+    return numbers.map((n) => n * n);
+  }
 
   return (
     <div className="App">
@@ -28,7 +42,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
